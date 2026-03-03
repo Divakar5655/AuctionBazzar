@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AuctionBazaar</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="home-navbar">
+  <div class="home-logo">
+    <i class="fa-solid fa-gavel"></i> AuctionBazaar
+  </div>
+
+  <nav class="home-nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="auctions.html">All Auctions</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="login.html" id="authLink">Login</a>
+  </nav>
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="home-hero">
+  <h1>Discover Rare Treasures</h1>
+  <p>Join thousands of collectors in India's fastest growing online auction marketplace.</p>
+
+  <div class="home-hero-buttons">
+    <a href="auctions.html" class="home-btn-primary">Browse Auctions</a>
+    <a href="register.html" class="home-btn-outline">Get Started</a>
+  </div>
+</section>
+
+
+<!-- ================= WHY CHOOSE ================= -->
+<section class="home-why">
+  <h2>Why Choose AuctionBazaar?</h2>
+
+  <div class="home-why-grid">
+    <div class="home-why-card reveal">
+      <i class="fa-solid fa-chart-line"></i>
+      <h3>Live Bidding</h3>
+      <p>Real-time auction updates and instant notifications.</p>
+    </div>
+
+    <div class="home-why-card reveal">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h3>Secure Payments</h3>
+      <p>100% protected transactions and verified sellers.</p>
+    </div>
+
+    <div class="home-why-card reveal">
+      <i class="fa-solid fa-headset"></i>
+      <h3>24/7 Support</h3>
+      <p>Round-the-clock assistance.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= FEATURED ================= -->
+<section class="home-featured-glass">
+  
+  <div class="featured-header">
+    <h2>🔥 IN-DEMAND AUCTIONS</h2>
+    <p>Bid, Buy & Win Premium Items Across India</p>
+    <a href="auctions.html" class="view-all-btn">View All Auctions</a>
+  </div>
+
+  <div id="featuredAuctions" class="glass-auction-grid"></div>
+
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="home-stats">
+  <div>
+    <h2 class="counter" data-target="50000">0</h2>
+    <p>Active Users</p>
+  </div>
+  <div>
+    <h2 class="counter" data-target="10000">0</h2>
+    <p>Live Auctions</p>
+  </div>
+  <div>
+    <h2 class="counter" data-target="25000000">0</h2>
+    <p>Total Sales</p>
+  </div>
+  <div>
+    <h2 class="counter" data-target="98">0</h2>
+    <p>Satisfaction %</p>
+  </div>
+</section>
+
+
+<!-- ================= CTA ================= -->
+<section class="home-cta">
+  <h2>Ready to Start Selling?</h2>
+  <p>Create your account and turn your items into cash today.</p>
+  <a href="register.html" class="home-btn-primary">Create Your Account</a>
+</section>
+
+
+<footer class="home-footer">
+  <i class="fa-solid fa-gavel"></i> AuctionBazaar
+  <p>© 2026 AuctionBazaar. All rights reserved.</p>
+</footer>
+
+
+<script src="js/api.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

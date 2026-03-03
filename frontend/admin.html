@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>Admin Panel</h2>
+    </div>
+
+    <div class="sidebar-menu">
+      <a href="#" onclick="showSection(event,'dashboard')" class="active">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+      </a>
+
+      <a href="#" onclick="showSection(event,'users')">
+        <i class="fa-solid fa-users"></i> Manage Users
+      </a>
+
+      <a href="#" onclick="showSection(event,'auctions')">
+        <i class="fa-solid fa-gavel"></i> Manage Auctions
+      </a>
+
+      <a href="#" onclick="showSection(event,'wallet')">
+        <i class="fa-solid fa-wallet"></i> Wallet
+      </a>
+
+      <a href="#" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- DASHBOARD -->
+    <div id="dashboardSection" class="page-section">
+
+      <div class="section-box">
+        <div class="dashboard-header">
+          
+          <div>
+            <h1>Admin Dashboard</h1>
+            <p class="date-text">Welcome back, Administrator</p>
+          </div>
+          
+          <div class="header-buttons">
+            <button class="primary-btn" onclick="downloadCSV()">
+              <i class="fa-solid fa-download"></i> Download Report
+            </button>
+            
+            <button class="visit-btn" onclick="visitSite()">
+              <i class="fa-solid fa-globe"></i> Visit Site
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-box">
+        <h2>System Statistics</h2>
+        
+        <div class="stats-grid">
+          <div class="stat-box"><h3>Total Users</h3><p id="totalUsers">0</p></div>
+          <div class="stat-box"><h3>Total Auctions</h3><p id="totalAuctions">0</p></div>
+          <div class="stat-box"><h3>Active Auctions</h3><p id="activeAuctions">0</p></div>
+          <div class="stat-box"><h3>Completed</h3><p id="completedAuctions">0</p></div>
+        </div>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card purple"><h3>Total Revenue</h3><p id="totalRevenue">₹0</p></div>
+        <div class="stat-card orange"><h3>Pending Auctions</h3><p id="pendingRequests">0</p></div>
+        <div class="stat-card green"><h3>Avg Value</h3><p id="avgAuctionValue">₹0</p></div>
+        <div class="stat-card red"><h3>Blocked Users</h3><p id="blockedUsers">0</p></div>
+      </div>
+
+      <!-- Pending Auction Requests -->
+      <div class="section-box">
+        <h2>Pending Auction Requests</h2>
+        <ul id="auctionRequests" class="admin-list"></ul>
+      </div>
+    
+    </div>
+  </div>
+
+
+    <!-- USERS -->
+    <div id="usersSection" class="page-section" style="display:none">
+      <div class="card-section">
+        <h2>User Management</h2>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Status</th>
+              <th>Auctions</th>
+              <th>Total Spent</th>
+              <th>Total Earn</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="userTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- AUCTIONS -->
+    <div id="auctionsSection" class="page-section" style="display:none">
+      <div class="card-section">
+        <h2>All Auctions</h2>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Seller</th>
+              <th>Final Price</th>
+              <th>Bids</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="auctionTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- WALLET -->
+    <div id="walletSection" class="page-section" style="display:none">
+      <div class="card-section">
+        <h2>Admin Wallet</h2>
+
+        <div class="wallet-box">
+          <div>
+            <h3>Available Balance</h3>
+            <p id="walletBalance">₹0</p>
+          </div>
+          <div>
+            <h3>Blocked Balance</h3>
+            <p id="blockedBalance">₹0</p>
+          </div>
+        </div>
+
+        <button onclick="openAddFundsModal()" class="primary-btn">
+          ➕ Add Funds
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Add Funds Modal -->
+<div id="addFundsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
+  <div style="background:white; padding:25px; width:350px; margin:150px auto; border-radius:10px;">
+    <h3>Add Funds</h3>
+    <input type="number" id="addAmount" placeholder="Enter amount" style="width:100%; padding:8px;">
+    <p id="addFundsMsg"></p>
+    <button onclick="addFunds()" class="primary-btn">Add</button>
+    <button onclick="closeAddFundsModal()">Cancel</button>
+  </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
+  

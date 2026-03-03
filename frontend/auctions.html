@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Auctions</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- 🔥 TOP NAVBAR -->
+  <div class="topbar">
+    <div class="logo">🔨 AuctionBazaar</div>
+
+    <input type="text" placeholder="Search auctions..." class="search-bar" />
+    
+    <div class="nav-actions">
+      <button id="indexBtn" class="home-btn-primary" onclick="goToindex()">Home</button>
+      <button id="createBtn" class="start-selling" onclick="goToCreateAuction()">Create Auction</button>
+      <div id="dashboardIcon" class="user-icon" onclick="goToDashboard()">👤</div>
+      <button id="logoutBtn" class="logout-btn" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </div>
+
+  <!-- 🔥 CATEGORY FILTER -->
+  <div class="category-bar">
+    <button class="cat-btn active">All</button>
+    <button class="cat-btn">Electronics</button>
+    <button class="cat-btn">Vehicles</button>
+    <button class="cat-btn">Mobiles</button>
+  </div>
+  
+  <!-- FEATURED AUCTIONS -->
+  <h2 class="section-title">Featured Auctions</h2>
+  <div id="featuredAuctions" class="auction-container"></div>
+  
+  <!-- FILTER TABS -->
+  <div class="auction-tabs">
+    <button class="tab active" data-filter="all">All Auctions</button>
+    <button class="tab" data-filter="upcoming">Upcoming</button>
+    <button class="tab" data-filter="hot">Hot Auctions</button>
+    <button class="tab" data-filter="ending">Ending Soon</button>
+    <button class="tab" data-filter="completed">Completed</button>
+  </div>
+
+  <!-- 🔥 AUCTION CARDS -->
+  <div class="auction-container" id="auctionList"></div>
+
+  <script src="js/auctions.js"></script>
+</body>
+</html>
+

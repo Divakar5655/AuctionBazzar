@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+  <div class="sidebar-header">
+    <h2>User Panel</h2>
+  </div>
+
+  <div class="sidebar-menu">
+
+    <a href="javascript:void(0)" class="active" onclick="showSection(event,'dashboardSection')">
+      <i class="fa-solid fa-chart-line"></i> Dashboard
+    </a>
+
+    <a href="javascript:void(0)" onclick="showSection(event,'myAuctionsSection')">
+      <i class="fa-solid fa-gavel"></i> My Auctions
+    </a>
+
+    <a href="javascript:void(0)" onclick="showSection(event,'myBidsSection')">
+      <i class="fa-solid fa-hand-holding-dollar"></i> My Bids
+    </a>
+
+    <a href="javascript:void(0)" onclick="showSection(event,'walletSection')">
+      <i class="fa-solid fa-wallet"></i> Wallet
+    </a>
+
+    <a href="javascript:void(0)" onclick="showSection(event,'settingsSection')">
+      <i class="fa-solid fa-gear"></i> Settings
+    </a>
+
+    <a href="#" onclick="logout()">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+
+  </div>
+</div>
+
+  <!-- Main -->
+  <div class="main-content">
+
+  <!-- DASHBOARD SECTION -->
+  <div id="dashboardSection" class="page-section">
+
+    <div class="glass-box welcome-box">
+      <div class="dashboard-header">
+        <div>
+          <h2 id="welcomeText">Welcome back!</h2>
+          <p class="date-text">Here's what's happening today</p>
+        </div>
+        <button class="home-btn" onclick="window.location.href='index.html'">
+          <i class="fa-solid fa-house"></i> Home
+        </button>
+        <button class="create-btn" onclick="window.location.href='create-auction.html'">
+          <i class="fa-solid fa-plus"></i> Create Auction
+        </button>
+        <button class="primary-btn" onclick="window.location.href='auctions.html'">
+          Browse Auctions
+        </button>
+      </div>
+    </div>
+
+    <div class="glass-box">
+      <h2>User Statistics</h2>
+
+      <div class="stats-grid">
+        <div class="stat-card purple">
+          <h3>Active Auctions</h3>
+          <p id="statActive">0</p>
+        </div>
+
+        <div class="stat-card orange">
+          <h3>Total Bids</h3>
+          <p id="statBids">0</p>
+        </div>
+
+        <div class="stat-card green">
+          <h3>Items Won</h3>
+          <p id="statWon">0</p>
+        </div>
+
+        <div class="stat-card red">
+          <h3>Total Earnings</h3>
+          <p>₹<span id="statEarnings">0</span></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- MY AUCTIONS SECTION -->
+  <div id="myAuctionsSection" class="page-section" style="display:none">
+
+    <div class="glass-box">
+      <h2>My Auctions</h2>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Current Bid</th>
+            <th>Bids</th>
+            <th>Status</th>
+            <th>Time Left</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="myAuctionsTable"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+  <!-- MY BIDS SECTION -->
+  <div id="myBidsSection" class="page-section" style="display:none">
+
+    <div class="glass-box">
+      <h2>My Bids</h2>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>My Bid</th>
+            <th>Current Bid</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="myBidsTable"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+  <!-- WALLET SECTION -->
+  <div id="walletSection" class="page-section" style="display:none">
+
+    <div class="glass-box">
+      <h2>My Wallet</h2>
+
+      <div class="wallet-box">
+        <div>
+          <h4>Available Balance</h4>
+          ₹<span id="walletAvailable">0</span>
+        </div>
+
+        <div>
+          <h4>Blocked Balance</h4>
+          ₹<span id="walletBlocked">0</span>
+        </div>
+      </div>
+
+      <button class="primary-btn" onclick="openAddFundsModal()">➕ Add Funds</button>
+    </div>
+
+  </div>
+    
+    <div id="addFundsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); justify-content:center; align-items:center;">
+      <div style="background:white; padding:25px; border-radius:12px; width:300px;">
+        <h3>Add Funds</h3>
+        <input type="number" id="addAmount" placeholder="Enter amount" style="width:100%; padding:10px; margin-top:10px;">
+        <p id="addFundsMsg"></p>
+        <br>
+        <button onclick="addFunds()" class="primary-btn">Add</button>
+        <button onclick="closeAddFundsModal()">Cancel</button>
+      </div>
+    </div>
+    
+    <!-- SETTINGS SECTION -->
+    <div id="settingsSection" class="page-section" style="display:none">
+
+    <div class="glass-box">
+      <h2>Edit Profile</h2>
+
+      <input type="text" id="editName" placeholder="Name"><br><br>
+      <input type="email" id="editEmail" placeholder="Email"><br><br>
+
+      <button class="primary-btn" onclick="saveProfile()">Save</button>
+      <p id="profileMsg"></p>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

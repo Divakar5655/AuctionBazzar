@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register | AuctionBazaar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="auth-body">
+  <header class="home-navbar">
+  <div class="home-logo">
+    <i class="fa-solid fa-gavel"></i> AuctionBazaar
+  </div>
+
+  <nav class="home-nav-links">
+    <a href="index.html">Home</a>
+    <a href="auctions.html">All Auctions</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
+
+
+<div class="auth-container">
+
+  <!-- LEFT SIDE -->
+  <div class="auth-left">
+    <h1>Join AuctionBazaar</h1>
+    <p>
+      Create your account to start selling products,  
+      place bids, and compete in exciting live auctions.
+    </p>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="auth-right">
+    <h2>Register</h2>
+
+    <div class="input-group"><input type="text" id="name" required><label>Full Name</label></div>
+    <div class="input-group"><input type="email" id="email" required><label>Email</label></div>
+    <div class="input-group"><input type="password" id="password" required><label>Password</label></div>
+    <button onclick="registerUser()">Register</button>
+
+    <p class="switch-text">
+      Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+  </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

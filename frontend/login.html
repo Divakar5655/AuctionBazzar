@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | AuctionBazaar</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="auth-body">
+  <header class="home-navbar">
+    <div class="home-logo">
+      <i class="fa-solid fa-gavel"></i> AuctionBazaar
+    </div>
+    
+    <nav class="home-nav-links">
+      <a href="index.html">Home</a>
+      <a href="auctions.html">All Auctions</a>
+      <a href="register.html">Sign Up</a>
+    </nav>
+  </header>
+
+<div class="auth-container">
+
+  <!-- LEFT SIDE -->
+  <div class="auth-left">
+    <h1>Welcome Back!</h1>
+    <p>
+      Log in to continue bidding on premium products,  
+      track your auctions, and manage your wallet securely.
+    </p>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="auth-right">
+    <h2>Login</h2>
+
+    <form onsubmit="event.preventDefault(); loginUser();">
+      <div class="input-group icon-input"></i><input type="email" id="email" required><label>Email</label></div>
+      <div class="input-group icon-input"></i><input type="password" id="password" required><label>Password</label></div>
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="switch-text">
+      Don't have an account?
+      <a href="register.html">Sign Up</a>
+    </p>
+  </div>
+  <div id="toast"></div>
+
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>
