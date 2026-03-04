@@ -1,4 +1,4 @@
-const API_BASE = "https://auctionbazzar.onrender.com";
+const API_BASE = "https://auctionbazzar.onrender.com/api";
 
 function showToast(message, success = true) {
   const toast = document.getElementById("toast");

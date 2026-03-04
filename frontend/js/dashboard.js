@@ -1,4 +1,4 @@
-const API_BASE = "https://auctionbazzar.onrender.com"
+import { API_BASE, api } from "./api.js";
 
 window.onload = () => {
   checkAuth();
@@ -12,6 +12,12 @@ window.onload = () => {
 const role = localStorage.getItem("role");
 if (role === "admin") {
     window.location.href = "admin.html";
+}
+
+const token = localStorage.getItem("token");
+
+if (!token) {
+  window.location.href = "login.html";
 }
 
 function checkAuth(){
@@ -249,5 +255,6 @@ function addFunds(){
 // LOGOUT
 function logout(){
   localStorage.removeItem("token");
+  localStorage.removeItem("role");
   window.location.href = "login.html";
 }
