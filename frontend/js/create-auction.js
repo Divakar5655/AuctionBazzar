@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_BASE = "https://auctionbazzar.onrender.com"
 
 const electronicsQuestions = [
   {
@@ -524,7 +524,7 @@ document.getElementById("createAuctionForm")
   }
   
 
-  const res = await fetch(`${API_URL}/auctions`, {
+  const res = await fetch(`${API_BASE}/auctions`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -541,74 +541,3 @@ document.getElementById("createAuctionForm")
     alert("❌ " + result.message);
   }
 });
-
-/*document
-  .getElementById("createAuctionForm")
-  .addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const token = localStorage.getItem("token");
-    if (!token) {
-      alert("Please login first");
-      return;
-    }
-
-    const title = document.getElementById("title").value.trim();
-    const description = document.getElementById("description").value.trim();
-    const category = document.getElementById("category").value;
-    const basePrice = categoryPrices[category.toLowerCase()];
-    const startTime = document.getElementById("startTime").value;
-    const endTime = document.getElementById("endTime").value;
-    const imagesInput = document.getElementById("images");
-
-    if (!title || !description || !category || basePrice <= 0) {
-      alert("❌ Invalid input");
-      return;
-    }
-
-    if (new Date(endTime) <= new Date(startTime)) {
-      alert("❌ End time must be after start time");
-      return;
-    }
-
-    // IMPORTANT: FormData
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("category", category);
-    formData.append("basePrice", basePrice);
-    formData.append("startTime", startTime);
-    formData.append("endTime", endTime);
-
-    // max 10 images
-    for (let i = 0; i < imagesInput.files.length && i < 10; i++) {
-      formData.append("images", imagesInput.files[i]);
-    }
-
-    const expectedPrice = document.getElementById("expectedPrice").value;
-
-    const res = await fetch(`${API_URL}/auctions`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: formData,
-    });
-
-    let result;
-    try {
-      result = await res.json();
-    } catch (e) {
-      const text = await res.text();
-      console.error("Non-JSON response:", text);
-      alert("Server error (non-JSON response)");
-      return;
-    }
-  
-    if (res.ok) {
-      alert("✅ Auction submitted for admin approval");
-      window.location.href = "auctions.html";
-    } else {
-      alert("❌ " + result.message);
-    }
-  });*/

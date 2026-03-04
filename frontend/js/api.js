@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://auctionbazzar.onrender.com"
 
 function getToken() {
   const t = localStorage.getItem("token");

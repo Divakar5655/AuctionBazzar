@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_BASE = "https://auctionbazzar.onrender.com"
 
 window.onload = () => {
   checkAuth();
@@ -52,7 +52,7 @@ async function saveProfile(){
   const name = document.getElementById("editName").value;
   const email = document.getElementById("editEmail").value;
 
-  const res = await fetch(`${API_URL}/auth/update-profile`,{
+  const res = await fetch(`${API_BASE}/auth/update-profile`,{
     method:"PUT",
     headers:{
       "Content-Type":"application/json",
@@ -225,7 +225,7 @@ function addFunds(){
     return;
   }
 
-  fetch(`${API_URL}/wallet/add`,{
+  fetch(`${API_BASE}/wallet/add`,{
     method:"POST",
     headers:{
       "Content-Type":"application/json",

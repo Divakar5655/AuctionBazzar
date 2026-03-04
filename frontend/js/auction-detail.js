@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_BASE = "https://auctionbazzar.onrender.com"
 
 const timeBar = document.getElementById("auctionTimeBar");
 const auctionTimer = document.getElementById("auctionTimer");
@@ -35,14 +35,14 @@ let timeInterval = null;
 let bidInterval = null;
 
 // LOAD AUCTION
-fetch(`${API_URL}/auctions/${auctionId}`, {
+fetch(`${API_BASE}/auctions/${auctionId}`, {
   headers: token ? { Authorization: `Bearer ${token}` } : {}
 })
   .then(res => res.json())
   .then(auction => {
     
     if (auction.images && auction.images.length > 0) {
-      images = auction.images.map(img => `http://localhost:5000${img}`);
+      images = auction.images.map(img => `${API_BASE}${img}`);
       currentIndex = 0;
       showImage();
     } else {
@@ -147,7 +147,7 @@ fetch(`${API_URL}/auctions/${auctionId}`, {
 
 // RAISE BID
 function raiseBid() {
-  fetch(`${API_URL}/auctions/${auctionId}/bid`, {
+  fetch(`${API_BASE}/auctions/${auctionId}/bid`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -171,7 +171,7 @@ function monsterBid() {
   const ok = confirm("Are you sure? Monster Bid will jump the price!");
   if (!ok) return;
 
-  fetch(`${API_URL}/auctions/${auctionId}/bid`, {
+  fetch(`${API_BASE}/auctions/${auctionId}/bid`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -192,7 +192,7 @@ function monsterBid() {
 
 // BID HISTORY
 function loadBidHistory(showWinner = false) {
-  fetch(`${API_URL}/auctions/${auctionId}/bids`, {
+  fetch(`${API_BASE}/auctions/${auctionId}/bids`, {
     headers: token ? { Authorization: `Bearer ${token}` } : {}
   })
     .then(res => res.json())

@@ -31,7 +31,7 @@ async function loadFeatured(){
     featured.forEach(a=>{
       container.innerHTML+=`
         <div class="auction-card">
-          <img class="auction-img" src="http://localhost:5000${a.images[0] || ''}">
+          <img class="auction-img" src="${API_BASE}${a.images[0] || ''}">
           <div class="card-body">
             <div class="category-badge">${a.category || "featuredAuction"}</div>
             <div class="card-title">${a.title}</div>

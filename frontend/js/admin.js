@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_BASE = "https://auctionbazzar.onrender.com"
 const token = localStorage.getItem("token");
 const role = (localStorage.getItem("role") || "").toLowerCase();
 
@@ -28,7 +28,7 @@ function showSection(event, section) {
 /* ================= API ================= */
 
 async function api(endpoint, options = {}) {
-  const res = await fetch(API_URL + endpoint, {
+  const res = await fetch(API_BASE + endpoint, {
     ...options,
     headers: {
       "Content-Type": "application/json",

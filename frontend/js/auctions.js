@@ -1,5 +1,4 @@
-const API_URL = "http://localhost:5000/api";
-
+const API_BASE = "https://auctionbazzar.onrender.com"
 let allAuctions = [];
 let currentFilter = "all";
 let currentCategory = "all"; 
@@ -54,7 +53,7 @@ function createCard(a) {
 
   const imageUrl =
     a.images && a.images.length > 0
-      ? `http://localhost:5000${a.images[0]}`
+      ? `${API_BASE}${a.images[0]}`
       : "https://via.placeholder.com/400x200";
 
   return `
@@ -86,7 +85,7 @@ function createCard(a) {
 
 /* ================= LOAD AUCTIONS ================= */
 async function loadAuctions() {
-  const res = await fetch(`${API_URL}/auctions`);
+  const res = await fetch(`${API_BASE}/auctions`);
   allAuctions = await res.json();
   renderFeatured();
   renderAuctions();
