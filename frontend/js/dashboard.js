@@ -258,3 +258,10 @@ function logout(){
   localStorage.removeItem("role");
   window.location.href = "login.html";
 }
+
+window.showSection = showSection;
+window.logout = logout;
+window.openAddFundsModal = openAddFundsModal;
+window.closeAddFundsModal = closeAddFundsModal;
+window.addFunds = addFunds;
+window.saveProfile = saveProfile;

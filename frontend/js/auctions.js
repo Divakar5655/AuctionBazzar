@@ -1,4 +1,4 @@
-const API_BASE = "https://auctionbazzar.onrender.com"
+const API_BASE = "https://auctionbazzar.onrender.com/api"
 let allAuctions = [];
 let currentFilter = "all";
 let currentCategory = "all"; 
@@ -53,7 +53,7 @@ function createCard(a) {
 
   const imageUrl =
     a.images && a.images.length > 0
-      ? `${API_BASE}${a.images[0]}`
+      ? `https://auctionbazzar.onrender.com${a.images[0]}`
       : "https://via.placeholder.com/400x200";
 
   return `
