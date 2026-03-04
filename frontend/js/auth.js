@@ -64,6 +64,11 @@ async function loginUser() {
       alert(result.error);
     } else {
       const token = result.token || result.accessToken;
+      if (!result.user) {
+        alert(result.message || "Login failed");
+        return;
+      }
+      
       const role = result.user.role.toLowerCase();
       
       localStorage.setItem("token", token);
