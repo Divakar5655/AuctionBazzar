@@ -1,4 +1,4 @@
-const API_BASE = "https://auctionbazzar.onrender.com"
+const API_BASE = "https://auctionbazzar-api.onrender.com"
 
 const electronicsQuestions = [
   {
