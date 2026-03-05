@@ -1,4 +1,4 @@
-const API_BASE = "https://auctionbazzar-api.onrender.com"
+const API_BASE = "https://auctionbazzar-api.onrender.com/api"
 
 const electronicsQuestions = [
   {
@@ -525,7 +525,7 @@ document.getElementById("createAuctionForm")
   }
   
 
-  const res = await fetch(`${API_BASE}/api/auctions`, {
+  const res = await fetch(`${API_BASE}/auctions`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
