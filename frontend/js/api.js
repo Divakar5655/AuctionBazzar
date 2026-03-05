@@ -1,4 +1,4 @@
-export const API_BASE = "https://auctionbazzar-api.onrender.com/api";
+export const API_BASE = "https://auctionbazzar.onrender.com/api";
 
 function getToken() {
   const t = localStorage.getItem("token");
