@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "../frontend")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/auctiondb";
+const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/auctiondb";
 
 mongoose
   .connect(MONGO_URI)
