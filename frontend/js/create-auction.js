@@ -466,7 +466,8 @@ function generateProfessionalDescription(category, answers, totalPoints, basePri
   else grade = "Average Condition";
 
   return `
-This ${category} item has undergone a professional 10-point evaluation process.
+This product has undergone a professional 10-point evaluation process.
+Product Category: ${category}
 Overall Condition Grade: ${grade}
 Total Evaluation Score: ${totalPoints}/40
 Based on detailed analysis including physical condition, demand, documentation, and performance metrics.
