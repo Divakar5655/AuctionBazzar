@@ -1,4 +1,5 @@
-const API_BASE = "https://auctionbazzar.onrender.com"
+const API_BASE = "https://auctionbazzar.onrender.com/api"
+
 const token = localStorage.getItem("token");
 const role = (localStorage.getItem("role") || "").toLowerCase();
 
