@@ -1,4 +1,4 @@
-const API_BASE = "https://auctionbazzar-api.onrender.com/api"
+import { API_BASE } from "./api.js";
 
 const electronicsQuestions = [
   {
