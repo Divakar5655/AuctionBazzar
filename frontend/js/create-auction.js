@@ -524,7 +524,7 @@ document.getElementById("createAuctionForm")
   }
   
 
-  const res = await fetch(`${API_BASE}/auctions`, {
+  const res = await fetch(`${API_BASE}/api/auctions`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
